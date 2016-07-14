@@ -1,0 +1,4 @@
+DirectoryIndex poisk.php
+ErrorDocument 403 http://www.sweb.ru/
+ErrorDocument 404 http://www.sweb.ru/
+

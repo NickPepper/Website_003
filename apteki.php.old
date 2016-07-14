@@ -1,0 +1,18 @@
+<?PHP include('h.inc'); ?>
+<TD>
+<!-- right table begins -->
+<table border="0" cellpadding="0" cellspacing="0" width="575" height="100%">
+<tr valign="top">
+<td><IMG SRC="i/apteki.gif" border="0" width="575" height="22" ALT=""></td>
+</tr>
+<tr valign="top">
+<td bgcolor="#E9E9E9" width="574" height="100%">
+
+</td>
+</tr>
+</table>
+<!-- right table ends -->
+</TD>
+<TD width="1" bgcolor="#222222"></TD>
+</TR>
+<?PHP include('f.inc'); ?>

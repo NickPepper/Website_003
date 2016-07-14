@@ -1,0 +1,11 @@
+
+
+CREATE TABLE films (
+ id int(6) NOT NULL auto_increment,
+  title varchar(50) NOT NULL default '0',
+  comment varchar(250) NOT NULL default '0',
+  size varchar(30) NOT NULL default '0',
+  link varchar(250) NOT NULL default '0',
+ author varchar(100) NOT NULL default 'vadim',
+ date varchar(30) NOT NULL default ''
+) TYPE=MyISAM;

@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>Blinking Effect</title>
+<META http-equiv="Content-Type" content="text/html; charset=windows-1251">
+ <Style>
+   A:Link{ Color: #000000; Text-decoration: underline}
+   A:Visited{ Color: #000000; Text-decoration: underline}
+   A:Hover{ Color: #000000; Text-decoration: none}
+ td, body {font-family: verdana, arial, helvetica; font-size:11px;}  
+ </Style>
+
+<SCRIPT language=JavaScript>
+
+document.onmouseover = domouseover;
+document.onmouseout = domouseout;
+
+function ismsie4() {
+  if ((navigator.appName.indexOf("Internet Explorer") > -1) && (navigator.appVersion.indexOf("4") > -1)) { return true }
+  else { return false }
+}
+
+var linkTimeout = "";
+
+function showArrow(activeArrowID, linkName) {
+  for (i=0;i<=2;i++) {
+    if (i == activeArrowID) {
+      document.all[linkName + "Arrow"][i].style.color = "white";
+      document.all[linkName + "Arrow"][5 - i].style.color = "white";
+    }
+    else {
+      document.all[linkName + "Arrow"][i].style.color = "";
+      document.all[linkName + "Arrow"][5 - i].style.color = "";
+    }
+  }
+  activeArrowID++;
+  if (activeArrowID > 2) { activeArrowID = 0; }
+
+  linkTimeout = setTimeout("showArrow(" + activeArrowID + ', "' + linkName + '"' + ")", 120);
+}
+
+// This is separate because... umm, it makes things flexible ;-)
+function hideArrows(linkName) {
+  for (i=0;i<=2;i++) {
+    document.all[linkName + "Arrow"][i].style.color = "";
+    document.all[linkName + "Arrow"][5 - i].style.color = "";
+  }
+}
+
+
+function domouseover() {
+  srcElement = window.event.srcElement;
+  if (srcElement.className.indexOf("Link") > -1) {
+    var linkName = srcElement.id;
+    document.all[linkName + "Bracket"][0].style.color = "black";
+    document.all[linkName + "Bracket"][1].style.color = "black";
+    showArrow(0, linkName);
+  }
+}
+
+function domouseout() {
+  srcElement = window.event.srcElement;
+  if (srcElement.className.indexOf("Link") > -1) {
+    var linkName = srcElement.id;
+    hideArrows(linkName);
+    clearTimeout(linkTimeout);
+    document.all[linkName + "Bracket"][0].style.color = "";
+    document.all[linkName + "Bracket"][1].style.color = "";
+  }
+}
+
+</SCRIPT>
+</head>
+
+
+<body bgcolor="#EDEDED" text="#000000" link="#000000" topmargin="0" leftmargin="0">
+<center>
+
+<table width=100% height=100% border=0><tr><td align=center>
+ 
+<FONT face=Verdana size=1><FONT color=black><A id=mainArrow>&gt;</A>
+<A id=mainArrow>&gt;</A>
+<A id=mainArrow>&gt;</A></FONT>
+<A id=mainBracket>[</A>
+<A class=mainLink href="http://www.woweb.ru" id=main target="_top">main page</A>
+<A id=mainBracket>]</A><FONT color=black>
+<A id=mainArrow>&lt;</A>
+<A id=mainArrow>&lt;</A>
+<A id=mainArrow>&lt;</A>
+</FONT> 
+</FONT>
+
+<P>
+<FONT face=Verdana size=1>
+<FONT color=black>
+<A id=emailArrow>&gt;</A>
+<A id=emailArrow>&gt;</A>
+<A id=emailArrow>&gt;</A></FONT>
+<A id=emailBracket>[</A>
+<A class=emailLink href="mailto:wo@woweb.ru" id=email target=_top>email me</A>
+<A id=emailBracket>]</A>
+<FONT color=black>
+<A id=emailArrow>&lt;</A>
+<A id=emailArrow>&lt;</A>
+<A id=emailArrow>&lt;</A>
+</FONT>
+</FONT>
+</P>
+
+</td></tr></table>
+
+</body></html>
